@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Sidebar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <span class="logo-text">LLM<span class="accent">Sidebar</span></span>
+        </div>
+        <div class="dropdown-wrapper">
+            <select id="llm-selector">
+                <option value="https://chatgpt.com">ChatGPT</option>
+                <option value="https://gemini.google.com">Gemini</option>
+                <option value="https://www.perplexity.ai">Perplexity</option>
+                <option value="https://www.bing.com/chat">Copilot</option>
+            </select>
+            <div class="dropdown-arrow"></div>
+        </div>
+    </header>
+
+    <main class="content">
+        <iframe id="llm-frame" src="https://chatgpt.com" frameborder="0"></iframe>
+    </main>
+
+    <footer class="footer">
+        <div class="info-bar">
+            <span class="credit">Built with ❤️ by You</span>
+            <span class="version">v1.0</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

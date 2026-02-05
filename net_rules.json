@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "responseHeaders": [
+                {
+                    "header": "X-Frame-Options",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Content-Security-Policy",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Frame-Ancestors",
+                    "operation": "remove"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "*",
+            "resourceTypes": [
+                "sub_frame"
+            ]
+        }
+    }
+]

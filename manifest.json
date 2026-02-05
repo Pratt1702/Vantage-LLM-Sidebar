@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "LLM Sidebar",
+  "version": "1.0",
+  "description": "Access multiple LLMs in a single sidebar with Ctrl + Space shortcut.",
+  "permissions": [
+    "sidePanel",
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://gemini.google.com/*",
+    "https://www.perplexity.ai/*",
+    "https://www.bing.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "action": {
+    "default_title": "Open LLM Sidebar"
+  },
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Space",
+        "mac": "Command+Space"
+      },
+      "description": "Toggle the LLM Sidebar"
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "net_rules.json"
+      }
+    ]
+  }
+}
