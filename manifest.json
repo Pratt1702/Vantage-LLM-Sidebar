@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "OmniChat Sidebar",
+    "name": "Vantage (LLM Sidebar)",
     "version": "1.0.0",
     "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a professional, glassmorphic sidebar.",
     "permissions": [
@@ -28,7 +28,7 @@
         "default_path": "index.html"
     },
     "action": {
-        "default_title": "Open OmniChat Sidebar"
+        "default_title": "Open Vantage"
     },
     "commands": {
         "_execute_action": {
