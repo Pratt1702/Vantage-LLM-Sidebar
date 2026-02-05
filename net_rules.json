@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "priority": 1,
+        "priority": 1000,
         "action": {
             "type": "modifyHeaders",
             "responseHeaders": [
@@ -11,6 +11,10 @@
                 },
                 {
                     "header": "Content-Security-Policy",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Content-Security-Policy-Report-Only",
                     "operation": "remove"
                 },
                 {
@@ -28,11 +32,57 @@
                 {
                     "header": "Cross-Origin-Opener-Policy",
                     "operation": "remove"
+                },
+                {
+                    "header": "X-Content-Type-Options",
+                    "operation": "remove"
                 }
             ]
         },
         "condition": {
             "urlFilter": "*",
+            "resourceTypes": [
+                "sub_frame",
+                "main_frame"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "priority": 1000,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "User-Agent",
+                    "operation": "set",
+                    "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"
+                },
+                {
+                    "header": "Sec-Ch-Ua",
+                    "operation": "set",
+                    "value": "\"Not A(Brand\";v=\"99\", \"Microsoft Edge\";v=\"122\", \"Chromium\";v=\"122\""
+                },
+                {
+                    "header": "Sec-Ch-Ua-Mobile",
+                    "operation": "set",
+                    "value": "?0"
+                },
+                {
+                    "header": "Sec-Ch-Ua-Platform",
+                    "operation": "set",
+                    "value": "\"Windows\""
+                }
+            ]
+        },
+        "condition": {
+            "domainFilter": [
+                "bing.com",
+                "microsoft.com",
+                "perplexity.ai",
+                "microsoft365.com",
+                "live.com"
+            ],
             "resourceTypes": [
                 "sub_frame",
                 "main_frame"
