@@ -1,0 +1,4 @@
+_metadata/
+*.zip
+zips/
+.DS_Store
