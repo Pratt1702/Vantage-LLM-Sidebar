@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "priority": 1000,
+        "priority": 5000,
         "action": {
             "type": "modifyHeaders",
             "responseHeaders": [
@@ -15,6 +15,10 @@
                 },
                 {
                     "header": "Content-Security-Policy-Report-Only",
+                    "operation": "remove"
+                },
+                {
+                    "header": "X-Content-Security-Policy",
                     "operation": "remove"
                 },
                 {
@@ -43,13 +47,15 @@
             "urlFilter": "*",
             "resourceTypes": [
                 "sub_frame",
-                "main_frame"
+                "main_frame",
+                "xmlhttprequest",
+                "other"
             ]
         }
     },
     {
         "id": 2,
-        "priority": 1000,
+        "priority": 5000,
         "action": {
             "type": "modifyHeaders",
             "requestHeaders": [
@@ -72,6 +78,21 @@
                     "header": "Sec-Ch-Ua-Platform",
                     "operation": "set",
                     "value": "\"Windows\""
+                },
+                {
+                    "header": "Sec-Fetch-Dest",
+                    "operation": "set",
+                    "value": "document"
+                },
+                {
+                    "header": "Sec-Fetch-Mode",
+                    "operation": "set",
+                    "value": "navigate"
+                },
+                {
+                    "header": "Sec-Fetch-Site",
+                    "operation": "set",
+                    "value": "none"
                 }
             ]
         },
@@ -81,7 +102,10 @@
                 "microsoft.com",
                 "perplexity.ai",
                 "microsoft365.com",
-                "live.com"
+                "live.com",
+                "google.com",
+                "openai.com",
+                "chatgpt.com"
             ],
             "resourceTypes": [
                 "sub_frame",
