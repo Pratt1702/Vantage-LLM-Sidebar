@@ -104,7 +104,8 @@
                 },
                 {
                     "header": "Sec-Fetch-Site",
-                    "operation": "none"
+                    "operation": "set",
+                    "value": "none"
                 },
                 {
                     "header": "Referer",

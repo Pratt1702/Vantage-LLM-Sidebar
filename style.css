@@ -1,31 +1,30 @@
 :root {
-    /* Adaptive variables based on system preference */
     --accent-color: #00ffcc;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #0f0f0f;
-        --header-bg: rgba(20, 20, 20, 0.85);
-        --text-color: #f0f0f0;
+        --bg-color: #0d0d0d;
+        --footer-bg: rgba(20, 20, 20, 0.95);
+        --text-color: #e0e0e0;
         --border-color: rgba(255, 255, 255, 0.1);
         --dropdown-bg: #1a1a1a;
         --option-hover: rgba(0, 255, 204, 0.1);
         --glass-bg: rgba(255, 255, 255, 0.05);
-        --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        --shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
     }
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         --bg-color: #ffffff;
-        --header-bg: rgba(245, 245, 245, 0.85);
-        --text-color: #1a1a1a;
+        --footer-bg: rgba(250, 250, 250, 0.95);
+        --text-color: #333333;
         --border-color: rgba(0, 0, 0, 0.1);
         --dropdown-bg: #ffffff;
-        --option-hover: rgba(0, 255, 204, 0.1);
-        --glass-bg: rgba(0, 0, 0, 0.03);
-        --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        --option-hover: rgba(0, 255, 204, 0.05);
+        --glass-bg: rgba(0, 0, 0, 0.02);
+        --shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
     }
 }
 
@@ -43,108 +42,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: background 0.3s ease;
-}
-
-.header {
-    background: var(--header-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
-    z-index: 100;
-}
-
-.logo-text {
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: -0.5px;
-}
-
-.accent {
-    color: var(--accent-color);
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
-}
-
-.custom-dropdown {
-    position: relative;
-    width: 155px;
-}
-
-.dropdown-selected {
-    padding: 10px 14px;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dropdown-selected:hover {
-    border-color: var(--accent-color);
-    background: rgba(0, 255, 204, 0.05);
-    transform: translateY(-1px);
-}
-
-.dropdown-arrow {
-    width: 6px;
-    height: 6px;
-    border-right: 2px solid var(--text-color);
-    border-bottom: 2px solid var(--text-color);
-    transform: rotate(45deg);
-    margin-top: -3px;
-    transition: transform 0.3s;
-}
-
-.custom-dropdown.active .dropdown-arrow {
-    transform: rotate(-135deg) translateY(-2px);
-}
-
-.dropdown-options {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    background: var(--dropdown-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    overflow: hidden;
-    display: none;
-    box-shadow: var(--shadow);
-    z-index: 1000;
-    transform-origin: top;
-    animation: slideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: scaleY(0.95) translateY(-10px); }
-    to { opacity: 1; transform: scaleY(1) translateY(0); }
-}
-
-.custom-dropdown.active .dropdown-options {
-    display: block;
-}
-
-.option {
-    padding: 12px 14px;
-    font-size: 0.88rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
-}
-
-.option:hover {
-    background: var(--option-hover);
-    color: var(--accent-color);
-    padding-left: 18px;
 }
 
 .content {
@@ -156,23 +53,107 @@ body {
 #llm-frame {
     width: 100%;
     height: 100%;
+    border: none;
     background: transparent;
 }
 
 .footer {
-    padding: 8px 18px;
-    background: var(--header-bg);
+    padding: 10px 14px;
+    background: var(--footer-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--border-color);
-    font-size: 0.72rem;
-    color: var(--text-color);
-    opacity: 0.7;
+    z-index: 100;
 }
 
 .info-bar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
-.credit {
+.credit, .version {
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Bottom Dropdown Logic */
+.custom-dropdown {
+    position: relative;
+    flex: 1;
+    max-width: 180px;
+}
+
+.dropdown-selected {
+    padding: 6px 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
     font-weight: 600;
+    transition: all 0.2s;
+}
+
+.dropdown-selected:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.dropdown-arrow {
+    width: 4px;
+    height: 4px;
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+
+.custom-dropdown.active .dropdown-arrow {
+    transform: rotate(-135deg) translateY(-1px);
+}
+
+/* OPEN UPWARDS */
+.dropdown-options {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--dropdown-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transform-origin: bottom;
+    animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-dropdown.active .dropdown-options {
+    display: block;
+}
+
+.option {
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option:hover {
+    background: var(--option-hover);
+    color: var(--accent-color);
+    padding-left: 18px;
 }
