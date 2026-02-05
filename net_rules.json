@@ -57,7 +57,19 @@
             ]
         },
         "condition": {
-            "urlFilter": "*",
+            "domainFilter": [
+                "bing.com",
+                "microsoft.com",
+                "perplexity.ai",
+                "microsoft365.com",
+                "live.com",
+                "google.com",
+                "openai.com",
+                "chatgpt.com",
+                "microsoftonline.com",
+                "claude.ai",
+                "anthropic.com"
+            ],
             "resourceTypes": [
                 "sub_frame",
                 "main_frame",
@@ -67,7 +79,7 @@
         }
     },
     {
-        "id": 2,
+        "id": 10,
         "priority": 5000,
         "action": {
             "type": "modifyHeaders",
@@ -91,42 +103,128 @@
                     "header": "Sec-Ch-Ua-Platform",
                     "operation": "set",
                     "value": "\"Windows\""
-                },
-                {
-                    "header": "Sec-Fetch-Dest",
-                    "operation": "set",
-                    "value": "iframe"
-                },
-                {
-                    "header": "Sec-Fetch-Mode",
-                    "operation": "set",
-                    "value": "navigate"
-                },
-                {
-                    "header": "Sec-Fetch-Site",
-                    "operation": "set",
-                    "value": "none"
-                },
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "*",
+            "resourceTypes": [
+                "sub_frame",
+                "main_frame",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 20,
+        "priority": 5001,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
                 {
                     "header": "Referer",
                     "operation": "set",
-                    "value": "https://www.bing.com/"
+                    "value": "https://gemini.google.com/"
+                },
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://gemini.google.com"
                 }
             ]
         },
         "condition": {
             "domainFilter": [
-                "bing.com",
-                "microsoft.com",
-                "perplexity.ai",
-                "microsoft365.com",
-                "live.com",
-                "google.com",
-                "openai.com",
+                "google.com"
+            ],
+            "resourceTypes": [
+                "sub_frame",
+                "main_frame",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 30,
+        "priority": 5001,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://chatgpt.com/"
+                },
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://chatgpt.com"
+                }
+            ]
+        },
+        "condition": {
+            "domainFilter": [
                 "chatgpt.com",
-                "microsoftonline.com",
+                "openai.com"
+            ],
+            "resourceTypes": [
+                "sub_frame",
+                "main_frame",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 40,
+        "priority": 5001,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://claude.ai/"
+                },
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://claude.ai"
+                }
+            ]
+        },
+        "condition": {
+            "domainFilter": [
                 "claude.ai",
                 "anthropic.com"
+            ],
+            "resourceTypes": [
+                "sub_frame",
+                "main_frame",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 50,
+        "priority": 5001,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.perplexity.ai/"
+                },
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.perplexity.ai"
+                }
+            ]
+        },
+        "condition": {
+            "domainFilter": [
+                "perplexity.ai"
             ],
             "resourceTypes": [
                 "sub_frame",

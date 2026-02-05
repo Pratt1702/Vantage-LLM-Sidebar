@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "OmniChat Sidebar",
-    "version": "1.3",
-    "description": "Access multiple LLMs in a single sidebar with Ctrl + Space shortcut.",
+    "version": "1.0.0",
+    "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a professional, glassmorphic sidebar.",
     "permissions": [
         "sidePanel",
         "declarativeNetRequest",
