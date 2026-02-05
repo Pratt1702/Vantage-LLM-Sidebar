@@ -58,22 +58,16 @@
         },
         "condition": {
             "domainFilter": [
-                "bing.com",
-                "microsoft.com",
+                "www.bing.com",
+                "copilot.microsoft.com",
                 "perplexity.ai",
-                "microsoft365.com",
-                "live.com",
-                "google.com",
-                "openai.com",
+                "gemini.google.com",
                 "chatgpt.com",
-                "microsoftonline.com",
                 "claude.ai",
                 "anthropic.com"
             ],
             "resourceTypes": [
                 "sub_frame",
-                "main_frame",
-                "xmlhttprequest",
                 "other"
             ]
         }
@@ -107,11 +101,17 @@
             ]
         },
         "condition": {
-            "urlFilter": "*",
+            "domainFilter": [
+                "www.bing.com",
+                "copilot.microsoft.com",
+                "perplexity.ai",
+                "gemini.google.com",
+                "chatgpt.com",
+                "claude.ai",
+                "anthropic.com"
+            ],
             "resourceTypes": [
-                "sub_frame",
-                "main_frame",
-                "xmlhttprequest"
+                "sub_frame"
             ]
         }
     },
@@ -135,12 +135,10 @@
         },
         "condition": {
             "domainFilter": [
-                "google.com"
+                "gemini.google.com"
             ],
             "resourceTypes": [
-                "sub_frame",
-                "main_frame",
-                "xmlhttprequest"
+                "sub_frame"
             ]
         }
     },
@@ -164,13 +162,10 @@
         },
         "condition": {
             "domainFilter": [
-                "chatgpt.com",
-                "openai.com"
+                "chatgpt.com"
             ],
             "resourceTypes": [
-                "sub_frame",
-                "main_frame",
-                "xmlhttprequest"
+                "sub_frame"
             ]
         }
     },
@@ -198,9 +193,7 @@
                 "anthropic.com"
             ],
             "resourceTypes": [
-                "sub_frame",
-                "main_frame",
-                "xmlhttprequest"
+                "sub_frame"
             ]
         }
     },
@@ -227,9 +220,7 @@
                 "perplexity.ai"
             ],
             "resourceTypes": [
-                "sub_frame",
-                "main_frame",
-                "xmlhttprequest"
+                "sub_frame"
             ]
         }
     }
