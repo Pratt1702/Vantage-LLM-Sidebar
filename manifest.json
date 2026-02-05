@@ -42,11 +42,12 @@
     }
   },
   "commands": {
-    "_execute_action": {
+    "toggle-vantage-panel": {
       "suggested_key": {
         "default": "Ctrl+Space",
         "mac": "Command+Space"
-      }
+      },
+      "description": "Open Vantage AI Sidebar"
     }
   },
   "declarative_net_request": {
