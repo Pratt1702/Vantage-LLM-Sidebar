@@ -35,10 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load saved preference
     chrome.storage.local.get(['selectedLLM', 'selectedName'], (result) => {
-        if (result.selectedLLM) {
-            console.log("Sidepanel: Restoring saved LLM:", result.selectedName);
-            selectedText.textContent = result.selectedName;
-            iframe.src = result.selectedLLM;
+        let savedUrl = result.selectedLLM;
+        let savedName = result.selectedName;
+
+        // RESET: If user has ANY Copilot/Bing URL saved, move them to ChatGPT for stability
+        if (savedUrl && (savedUrl.includes('microsoft.com') || savedUrl.includes('bing.com'))) {
+            console.log("Sidepanel: Redirecting legacy Copilot user to ChatGPT");
+            savedUrl = 'https://chatgpt.com';
+            savedName = 'ChatGPT';
+            chrome.storage.local.set({ selectedLLM: savedUrl, selectedName: savedName });
+        }
+
+        if (savedUrl) {
+            console.log("Sidepanel: Restoring saved LLM:", savedName);
+            selectedText.textContent = savedName;
+            iframe.src = savedUrl;
         } else {
             console.log("Sidepanel: No saved LLM, using default (ChatGPT)");
         }

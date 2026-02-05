@@ -40,6 +40,19 @@
                 {
                     "header": "X-Content-Type-Options",
                     "operation": "remove"
+                },
+                {
+                    "header": "Report-To",
+                    "operation": "remove"
+                },
+                {
+                    "header": "NEL",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Set-Cookie",
+                    "operation": "append",
+                    "value": "SameSite=None; Secure"
                 }
             ]
         },
@@ -82,7 +95,7 @@
                 {
                     "header": "Sec-Fetch-Dest",
                     "operation": "set",
-                    "value": "document"
+                    "value": "iframe"
                 },
                 {
                     "header": "Sec-Fetch-Mode",
@@ -91,8 +104,12 @@
                 },
                 {
                     "header": "Sec-Fetch-Site",
+                    "operation": "none"
+                },
+                {
+                    "header": "Referer",
                     "operation": "set",
-                    "value": "none"
+                    "value": "https://www.bing.com/"
                 }
             ]
         },
@@ -105,11 +122,15 @@
                 "live.com",
                 "google.com",
                 "openai.com",
-                "chatgpt.com"
+                "chatgpt.com",
+                "microsoftonline.com",
+                "claude.ai",
+                "anthropic.com"
             ],
             "resourceTypes": [
                 "sub_frame",
-                "main_frame"
+                "main_frame",
+                "xmlhttprequest"
             ]
         }
     }

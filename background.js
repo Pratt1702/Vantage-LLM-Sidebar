@@ -5,28 +5,34 @@ chrome.runtime.onInstalled.addListener(() => {
 
     console.log("OmniChat: Performing Nuclear Reset (Clearing Service Workers & Cache)...");
 
-    // CLEAR EVERYTHING that can interfere with DNR rules
+    // Clear all subdomains as well to ensure Service Workers are killed
+    const targets = [
+        "https://chatgpt.com",
+        "https://gemini.google.com",
+        "https://claude.ai",
+        "https://anthropic.com",
+        "https://www.perplexity.ai",
+        "https://copilot.microsoft.com",
+        "https://www.bing.com",
+        "https://login.microsoftonline.com",
+        "https://www.microsoft.com",
+        "https://microsoftonline.com"
+    ];
+
     chrome.browsingData.remove({
-        "origins": [
-            "https://chatgpt.com",
-            "https://gemini.google.com",
-            "https://www.perplexity.ai",
-            "https://copilot.microsoft.com",
-            "https://www.bing.com",
-            "https://login.microsoftonline.com",
-            "https://www.microsoft.com"
-        ]
+        "origins": targets
     }, {
         "cache": true,
         "serviceWorkers": true,
-        "indexedDB": true,
-        "localStorage": false // Keep their login session
+        "indexedDB": true
+    }, () => {
+        console.log("OmniChat: Reset Complete.");
     });
 });
 
 chrome.commands.onCommand.addListener((command) => {
     console.log("Service Worker: Command triggered:", command);
-    if (command === "toggle-sidebar-alt" || command === "_execute_action") {
+    if (command === "_execute_action") {
         chrome.windows.getCurrent((window) => {
             chrome.sidePanel.open({ windowId: window.id }).catch((err) => {
                 console.error("Service Worker: Open error:", err);
