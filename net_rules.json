@@ -57,7 +57,7 @@
       ]
     },
     "condition": {
-      "domainFilter": [
+      "requestDomains": [
         "www.bing.com",
         "copilot.microsoft.com",
         "perplexity.ai",
@@ -101,7 +101,7 @@
       ]
     },
     "condition": {
-      "domainFilter": [
+      "requestDomains": [
         "www.bing.com",
         "copilot.microsoft.com",
         "perplexity.ai",
@@ -135,7 +135,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["gemini.google.com"],
+      "requestDomains": ["gemini.google.com"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -158,7 +158,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["chatgpt.com"],
+      "requestDomains": ["chatgpt.com"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -181,7 +181,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["claude.ai", "anthropic.com"],
+      "requestDomains": ["claude.ai", "anthropic.com"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -204,7 +204,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["perplexity.ai"],
+      "requestDomains": ["perplexity.ai"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -227,7 +227,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["aistudio.google.com"],
+      "requestDomains": ["aistudio.google.com"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -250,7 +250,7 @@
       ]
     },
     "condition": {
-      "domainFilter": ["chat.deepseek.com", "deepseek.com"],
+      "requestDomains": ["chat.deepseek.com", "deepseek.com"],
       "resourceTypes": ["sub_frame"]
     }
   }
