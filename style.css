@@ -1,159 +1,176 @@
 :root {
-    --accent-color: #00ffcc;
+  --accent-color: #00ffcc;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #0d0d0d;
-        --footer-bg: rgba(20, 20, 20, 0.95);
-        --text-color: #e0e0e0;
-        --border-color: rgba(255, 255, 255, 0.1);
-        --dropdown-bg: #1a1a1a;
-        --option-hover: rgba(0, 255, 204, 0.1);
-        --glass-bg: rgba(255, 255, 255, 0.05);
-        --shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
-    }
+  :root {
+    --bg-color: #0d0d0d;
+    --footer-bg: rgba(20, 20, 20, 0.95);
+    --text-color: #e0e0e0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --dropdown-bg: #1a1a1a;
+    --option-hover: rgba(0, 255, 204, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
+  }
 }
 
 @media (prefers-color-scheme: light) {
-    :root {
-        --bg-color: #ffffff;
-        --footer-bg: rgba(250, 250, 250, 0.95);
-        --text-color: #333333;
-        --border-color: rgba(0, 0, 0, 0.1);
-        --dropdown-bg: #ffffff;
-        --option-hover: rgba(0, 255, 204, 0.05);
-        --glass-bg: rgba(0, 0, 0, 0.02);
-        --shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
-    }
+  :root {
+    --bg-color: #ffffff;
+    --footer-bg: rgba(250, 250, 250, 0.95);
+    --text-color: #333333;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --dropdown-bg: #ffffff;
+    --option-hover: rgba(0, 255, 204, 0.05);
+    --glass-bg: rgba(0, 0, 0, 0.02);
+    --shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .content {
-    flex: 1;
-    position: relative;
-    background: var(--bg-color);
+  flex: 1;
+  position: relative;
+  background: var(--bg-color);
 }
 
 #llm-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
 }
 
 .footer {
-    padding: 10px 14px;
-    background: var(--footer-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid var(--border-color);
-    z-index: 100;
+  padding: 10px 14px;
+  background: var(--footer-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-color);
+  z-index: 100;
 }
 
 .info-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.credit, .version {
-    font-size: 0.7rem;
-    font-weight: 500;
-    opacity: 0.8;
-    white-space: nowrap;
+.credit,
+.version {
+  font-size: 0.7rem;
+  font-weight: 500;
+  opacity: 0.8;
+  white-space: nowrap;
 }
 
 /* Bottom Dropdown Logic */
 .custom-dropdown {
-    position: relative;
-    flex: 1;
-    max-width: 180px;
+  position: relative;
+  flex: 1;
+  max-width: 180px;
 }
 
 .dropdown-selected {
-    padding: 6px 12px;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: all 0.2s;
+  padding: 6px 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
 }
 
 .dropdown-selected:hover {
-    border-color: var(--accent-color);
-    background: rgba(0, 255, 204, 0.05);
+  border-color: var(--accent-color);
+  background: rgba(0, 255, 204, 0.05);
 }
 
 .dropdown-arrow {
-    width: 4px;
-    height: 4px;
-    border-right: 2px solid var(--text-color);
-    border-bottom: 2px solid var(--text-color);
-    transform: rotate(45deg);
-    margin-top: -2px;
+  width: 4px;
+  height: 4px;
+  border-right: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+  transform: rotate(45deg);
+  margin-top: -2px;
 }
 
 .custom-dropdown.active .dropdown-arrow {
-    transform: rotate(-135deg) translateY(-1px);
+  transform: rotate(-135deg) translateY(-1px);
 }
 
 /* OPEN UPWARDS */
 .dropdown-options {
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    background: var(--dropdown-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden;
-    display: none;
-    box-shadow: var(--shadow);
-    z-index: 1000;
-    transform-origin: bottom;
-    animation: slideUp 0.2s ease;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow-y: auto;
+  max-height: 400px;
+  display: none;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transform-origin: bottom;
+  animation: slideUp 0.2s ease;
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .custom-dropdown.active .dropdown-options {
-    display: block;
+  display: block;
 }
 
 .option {
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: all 0.2s;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.option:hover {
-    background: var(--option-hover);
-    color: var(--accent-color);
-    padding-left: 18px;
+.option:hover,
+.option.active {
+  background: var(--option-hover);
+  color: var(--accent-color);
+  padding-left: 18px;
+}
+
+.option.active {
+  font-weight: 600;
 }

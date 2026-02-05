@@ -1,227 +1,257 @@
 [
-    {
-        "id": 1,
-        "priority": 5000,
-        "action": {
-            "type": "modifyHeaders",
-            "responseHeaders": [
-                {
-                    "header": "X-Frame-Options",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Content-Security-Policy",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Content-Security-Policy-Report-Only",
-                    "operation": "remove"
-                },
-                {
-                    "header": "X-Content-Security-Policy",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Frame-Ancestors",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Cross-Origin-Resource-Policy",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Cross-Origin-Embedder-Policy",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Cross-Origin-Opener-Policy",
-                    "operation": "remove"
-                },
-                {
-                    "header": "X-Content-Type-Options",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Report-To",
-                    "operation": "remove"
-                },
-                {
-                    "header": "NEL",
-                    "operation": "remove"
-                },
-                {
-                    "header": "Set-Cookie",
-                    "operation": "append",
-                    "value": "SameSite=None; Secure"
-                }
-            ]
+  {
+    "id": 1,
+    "priority": 5000,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        {
+          "header": "X-Frame-Options",
+          "operation": "remove"
         },
-        "condition": {
-            "domainFilter": [
-                "www.bing.com",
-                "copilot.microsoft.com",
-                "perplexity.ai",
-                "gemini.google.com",
-                "chatgpt.com",
-                "claude.ai",
-                "anthropic.com"
-            ],
-            "resourceTypes": [
-                "sub_frame",
-                "other"
-            ]
+        {
+          "header": "Content-Security-Policy",
+          "operation": "remove"
+        },
+        {
+          "header": "Content-Security-Policy-Report-Only",
+          "operation": "remove"
+        },
+        {
+          "header": "X-Content-Security-Policy",
+          "operation": "remove"
+        },
+        {
+          "header": "Frame-Ancestors",
+          "operation": "remove"
+        },
+        {
+          "header": "Cross-Origin-Resource-Policy",
+          "operation": "remove"
+        },
+        {
+          "header": "Cross-Origin-Embedder-Policy",
+          "operation": "remove"
+        },
+        {
+          "header": "Cross-Origin-Opener-Policy",
+          "operation": "remove"
+        },
+        {
+          "header": "X-Content-Type-Options",
+          "operation": "remove"
+        },
+        {
+          "header": "Report-To",
+          "operation": "remove"
+        },
+        {
+          "header": "NEL",
+          "operation": "remove"
+        },
+        {
+          "header": "Set-Cookie",
+          "operation": "append",
+          "value": "SameSite=None; Secure"
         }
+      ]
     },
-    {
-        "id": 10,
-        "priority": 5000,
-        "action": {
-            "type": "modifyHeaders",
-            "requestHeaders": [
-                {
-                    "header": "User-Agent",
-                    "operation": "set",
-                    "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"
-                },
-                {
-                    "header": "Sec-Ch-Ua",
-                    "operation": "set",
-                    "value": "\"Not A(Brand\";v=\"99\", \"Microsoft Edge\";v=\"122\", \"Chromium\";v=\"122\""
-                },
-                {
-                    "header": "Sec-Ch-Ua-Mobile",
-                    "operation": "set",
-                    "value": "?0"
-                },
-                {
-                    "header": "Sec-Ch-Ua-Platform",
-                    "operation": "set",
-                    "value": "\"Windows\""
-                }
-            ]
-        },
-        "condition": {
-            "domainFilter": [
-                "www.bing.com",
-                "copilot.microsoft.com",
-                "perplexity.ai",
-                "gemini.google.com",
-                "chatgpt.com",
-                "claude.ai",
-                "anthropic.com"
-            ],
-            "resourceTypes": [
-                "sub_frame"
-            ]
-        }
-    },
-    {
-        "id": 20,
-        "priority": 5001,
-        "action": {
-            "type": "modifyHeaders",
-            "requestHeaders": [
-                {
-                    "header": "Referer",
-                    "operation": "set",
-                    "value": "https://gemini.google.com/"
-                },
-                {
-                    "header": "Origin",
-                    "operation": "set",
-                    "value": "https://gemini.google.com"
-                }
-            ]
-        },
-        "condition": {
-            "domainFilter": [
-                "gemini.google.com"
-            ],
-            "resourceTypes": [
-                "sub_frame"
-            ]
-        }
-    },
-    {
-        "id": 30,
-        "priority": 5001,
-        "action": {
-            "type": "modifyHeaders",
-            "requestHeaders": [
-                {
-                    "header": "Referer",
-                    "operation": "set",
-                    "value": "https://chatgpt.com/"
-                },
-                {
-                    "header": "Origin",
-                    "operation": "set",
-                    "value": "https://chatgpt.com"
-                }
-            ]
-        },
-        "condition": {
-            "domainFilter": [
-                "chatgpt.com"
-            ],
-            "resourceTypes": [
-                "sub_frame"
-            ]
-        }
-    },
-    {
-        "id": 40,
-        "priority": 5001,
-        "action": {
-            "type": "modifyHeaders",
-            "requestHeaders": [
-                {
-                    "header": "Referer",
-                    "operation": "set",
-                    "value": "https://claude.ai/"
-                },
-                {
-                    "header": "Origin",
-                    "operation": "set",
-                    "value": "https://claude.ai"
-                }
-            ]
-        },
-        "condition": {
-            "domainFilter": [
-                "claude.ai",
-                "anthropic.com"
-            ],
-            "resourceTypes": [
-                "sub_frame"
-            ]
-        }
-    },
-    {
-        "id": 50,
-        "priority": 5001,
-        "action": {
-            "type": "modifyHeaders",
-            "requestHeaders": [
-                {
-                    "header": "Referer",
-                    "operation": "set",
-                    "value": "https://www.perplexity.ai/"
-                },
-                {
-                    "header": "Origin",
-                    "operation": "set",
-                    "value": "https://www.perplexity.ai"
-                }
-            ]
-        },
-        "condition": {
-            "domainFilter": [
-                "perplexity.ai"
-            ],
-            "resourceTypes": [
-                "sub_frame"
-            ]
-        }
+    "condition": {
+      "domainFilter": [
+        "www.bing.com",
+        "copilot.microsoft.com",
+        "perplexity.ai",
+        "gemini.google.com",
+        "aistudio.google.com",
+        "chatgpt.com",
+        "claude.ai",
+        "anthropic.com",
+        "chat.deepseek.com",
+        "deepseek.com"
+      ],
+      "resourceTypes": ["sub_frame", "other"]
     }
+  },
+  {
+    "id": 10,
+    "priority": 5000,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "User-Agent",
+          "operation": "set",
+          "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"
+        },
+        {
+          "header": "Sec-Ch-Ua",
+          "operation": "set",
+          "value": "\"Not A(Brand\";v=\"99\", \"Microsoft Edge\";v=\"122\", \"Chromium\";v=\"122\""
+        },
+        {
+          "header": "Sec-Ch-Ua-Mobile",
+          "operation": "set",
+          "value": "?0"
+        },
+        {
+          "header": "Sec-Ch-Ua-Platform",
+          "operation": "set",
+          "value": "\"Windows\""
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": [
+        "www.bing.com",
+        "copilot.microsoft.com",
+        "perplexity.ai",
+        "gemini.google.com",
+        "aistudio.google.com",
+        "chatgpt.com",
+        "claude.ai",
+        "anthropic.com",
+        "chat.deepseek.com",
+        "deepseek.com"
+      ],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://gemini.google.com/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://gemini.google.com"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["gemini.google.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 30,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://chatgpt.com/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://chatgpt.com"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["chatgpt.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 40,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://claude.ai/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://claude.ai"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["claude.ai", "anthropic.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 50,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://www.perplexity.ai/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://www.perplexity.ai"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["perplexity.ai"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 60,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://aistudio.google.com/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://aistudio.google.com"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["aistudio.google.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 70,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://chat.deepseek.com/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://chat.deepseek.com"
+        }
+      ]
+    },
+    "condition": {
+      "domainFilter": ["chat.deepseek.com", "deepseek.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  }
 ]

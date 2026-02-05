@@ -1,40 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vantage (LLM Sidebar)</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <main class="content">
-        <iframe id="llm-frame" src="https://chatgpt.com" frameborder="0" allow="clipboard-read; clipboard-write; microphone; camera; midi; encrypted-media; gyroscope; picture-in-picture; web-share; display-capture; autoplay"></iframe>
+      <iframe
+        id="llm-frame"
+        src="https://chatgpt.com"
+        frameborder="0"
+        allow="
+          clipboard-read;
+          clipboard-write;
+          microphone;
+          camera;
+          midi;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+          display-capture;
+          autoplay;
+        "
+      ></iframe>
     </main>
 
     <footer class="footer">
-        <div class="info-bar">
-            <span class="credit">Built to help people ❤️</span>
-            
-            <div class="custom-dropdown" id="llm-dropdown">
-                <div class="dropdown-selected">
-                    <span id="selected-text">ChatGPT</span>
-                    <div class="dropdown-arrow"></div>
-                </div>
-                <div class="dropdown-options">
-                    <div class="option" data-value="https://chatgpt.com">ChatGPT</div>
-                    <div class="option" data-value="https://gemini.google.com">Gemini</div>
-                    <div class="option" data-value="https://claude.ai">Claude</div>
-                    <div class="option" data-value="https://www.perplexity.ai">Perplexity</div>
-                </div>
-            </div>
+      <div class="info-bar">
+        <span class="credit">Built to help people ❤️</span>
 
-            <span class="version">v1.0.0</span>
+        <div class="custom-dropdown" id="llm-dropdown">
+          <div class="dropdown-selected">
+            <span id="selected-text">ChatGPT</span>
+            <div class="dropdown-arrow"></div>
+          </div>
+          <div class="dropdown-options">
+            <div class="option" data-value="https://chatgpt.com">ChatGPT</div>
+            <div class="option" data-value="https://claude.ai">Claude</div>
+            <div class="option" data-value="https://chat.deepseek.com">
+              DeepSeek
+            </div>
+            <div class="option" data-value="https://gemini.google.com">
+              Gemini
+            </div>
+            <div
+              class="option"
+              data-value="https://aistudio.google.com/app/prompts/new_chat"
+            >
+              Nano Banana
+            </div>
+            <div class="option" data-value="https://www.perplexity.ai">
+              Perplexity
+            </div>
+          </div>
         </div>
+
+        <span class="version">v1.0.0</span>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

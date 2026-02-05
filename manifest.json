@@ -1,60 +1,61 @@
 {
-    "manifest_version": 3,
-    "name": "Vantage (LLM Sidebar)",
-    "version": "1.0.0",
-    "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a professional, glassmorphic sidebar.",
-    "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-    },
-    "permissions": [
-        "sidePanel",
-        "declarativeNetRequest",
-        "storage",
-        "browsingData"
-    ],
-    "host_permissions": [
-        "https://*.chatgpt.com/*",
-        "https://*.google.com/*",
-        "https://*.perplexity.ai/*",
-        "https://*.bing.com/*",
-        "https://*.microsoft.com/*",
-        "https://*.microsoft365.com/*",
-        "https://*.live.com/*",
-        "https://*.microsoftonline.com/*",
-        "https://*.claude.ai/*",
-        "https://*.anthropic.com/*"
-    ],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "side_panel": {
-        "default_path": "index.html"
-    },
-    "action": {
-        "default_title": "Open Vantage",
-        "default_icon": {
-            "16": "icon16.png",
-            "48": "icon48.png",
-            "128": "icon128.png"
-        }
-    },
-    "commands": {
-        "_execute_action": {
-            "suggested_key": {
-                "default": "Ctrl+Space",
-                "mac": "Command+Space"
-            }
-        }
-    },
-    "declarative_net_request": {
-        "rule_resources": [
-            {
-                "id": "ruleset_1",
-                "enabled": true,
-                "path": "net_rules.json"
-            }
-        ]
+  "manifest_version": 3,
+  "name": "Vantage (LLM Sidebar)",
+  "version": "1.0.0",
+  "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a professional, glassmorphic sidebar.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "sidePanel",
+    "declarativeNetRequest",
+    "storage",
+    "browsingData"
+  ],
+  "host_permissions": [
+    "https://*.chatgpt.com/*",
+    "https://*.google.com/*",
+    "https://*.perplexity.ai/*",
+    "https://*.bing.com/*",
+    "https://*.microsoft.com/*",
+    "https://*.microsoft365.com/*",
+    "https://*.live.com/*",
+    "https://*.microsoftonline.com/*",
+    "https://*.claude.ai/*",
+    "https://*.anthropic.com/*",
+    "https://*.deepseek.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "action": {
+    "default_title": "Open Vantage",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
     }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Space",
+        "mac": "Command+Space"
+      }
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "net_rules.json"
+      }
+    ]
+  }
 }

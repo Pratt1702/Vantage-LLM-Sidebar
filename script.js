@@ -1,49 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.getElementById('llm-dropdown');
-    const selectedText = document.getElementById('selected-text');
-    const iframe = document.getElementById('llm-frame');
-    const options = document.querySelectorAll('.option');
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("llm-dropdown");
+  const selectedText = document.getElementById("selected-text");
+  const iframe = document.getElementById("llm-frame");
+  const options = document.querySelectorAll(".option");
 
-    // Toggle dropdown
-    dropdown.addEventListener('click', (e) => {
-        dropdown.classList.toggle('active');
-        e.stopPropagation();
+  // Toggle dropdown
+  dropdown.addEventListener("click", (e) => {
+    dropdown.classList.toggle("active");
+    e.stopPropagation();
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", () => {
+    dropdown.classList.remove("active");
+  });
+
+  // Handle selection
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      const url = option.getAttribute("data-value");
+      const name = option.textContent.trim();
+
+      iframe.src = url;
+      selectedText.textContent = name;
+
+      // Update active state in UI
+      options.forEach((opt) => opt.classList.remove("active"));
+      option.classList.add("active");
+
+      // Save preference
+      chrome.storage.local.set({ selectedLLM: url, selectedName: name });
     });
+  });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', () => {
-        dropdown.classList.remove('active');
-    });
+  // Load saved preference
+  chrome.storage.local.get(["selectedLLM", "selectedName"], (result) => {
+    let savedUrl = result.selectedLLM;
+    let savedName = result.selectedName;
 
-    // Handle selection
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            const url = option.getAttribute('data-value');
-            const name = option.textContent;
+    // RESET: If user has ANY legacy Copilot/Bing URL saved, move them to ChatGPT for stability
+    if (
+      savedUrl &&
+      (savedUrl.includes("microsoft.com") || savedUrl.includes("bing.com"))
+    ) {
+      savedUrl = "https://chatgpt.com";
+      savedName = "ChatGPT";
+      chrome.storage.local.set({
+        selectedLLM: savedUrl,
+        selectedName: savedName,
+      });
+    }
 
-            iframe.src = url;
-            selectedText.textContent = name;
+    if (savedUrl) {
+      selectedText.textContent = savedName;
+      iframe.src = savedUrl;
 
-            // Save preference
-            chrome.storage.local.set({ selectedLLM: url, selectedName: name });
-        });
-    });
-
-    // Load saved preference
-    chrome.storage.local.get(['selectedLLM', 'selectedName'], (result) => {
-        let savedUrl = result.selectedLLM;
-        let savedName = result.selectedName;
-
-        // RESET: If user has ANY legacy Copilot/Bing URL saved, move them to ChatGPT for stability
-        if (savedUrl && (savedUrl.includes('microsoft.com') || savedUrl.includes('bing.com'))) {
-            savedUrl = 'https://chatgpt.com';
-            savedName = 'ChatGPT';
-            chrome.storage.local.set({ selectedLLM: savedUrl, selectedName: savedName });
+      // Mark active in dropdown
+      options.forEach((option) => {
+        if (option.getAttribute("data-value") === savedUrl) {
+          option.classList.add("active");
         }
-
-        if (savedUrl) {
-            selectedText.textContent = savedName;
-            iframe.src = savedUrl;
-        }
-    });
+      });
+    } else {
+      // Default to first option if nothing saved
+      const defaultOpt = options[0];
+      if (defaultOpt) defaultOpt.classList.add("active");
+    }
+  });
 });
