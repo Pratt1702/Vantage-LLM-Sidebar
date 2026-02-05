@@ -11,8 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Close dropdown when clicking outside
-  document.addEventListener("click", () => {
-    dropdown.classList.remove("active");
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+
+  // Handle clicks inside the iframe (iframes don't bubble events to parent, so we use blur)
+  window.addEventListener("blur", () => {
+    if (document.activeElement === iframe) {
+      dropdown.classList.remove("active");
+    }
   });
 
   // Handle selection

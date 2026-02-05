@@ -205,13 +205,22 @@ body {
   transition: all 0.2s;
 }
 
-.option:hover,
-.option.active {
+.option:hover {
   background: var(--option-hover);
   color: var(--accent-color);
   padding-left: 18px;
 }
 
 .option.active {
+  background: var(--option-hover);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* Ensure that if we are hovering over the options container, the active item is visually "reset" if it's NOT the one being hovered */
+.dropdown-options:hover .option.active:not(:hover) {
+  background: transparent;
+  color: var(--text-color);
+  padding-left: 14px;
   font-weight: 600;
 }
