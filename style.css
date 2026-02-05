@@ -1,10 +1,26 @@
 :root {
+    /* Dark Mode Defaults */
     --bg-color: #0d0d0d;
-    --header-bg: rgba(20, 20, 20, 0.8);
+    --header-bg: rgba(20, 20, 20, 0.82);
     --text-color: #ffffff;
-    --accent-color: #00ffcc;
+    --accent-color: #00ffcc; /* Vibrant Cyan */
     --border-color: rgba(255, 255, 255, 0.1);
+    --dropdown-bg: #1a1a1a;
+    --option-hover: rgba(0, 255, 204, 0.15);
     --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #f8f9fa;
+        --header-bg: rgba(255, 255, 255, 0.82);
+        --text-color: #1a1a1a;
+        --accent-color: #00b38f; /* Deeper Teal for light mode */
+        --border-color: rgba(0, 0, 0, 0.1);
+        --dropdown-bg: #ffffff;
+        --option-hover: rgba(0, 179, 143, 0.1);
+        --glass-bg: rgba(0, 0, 0, 0.03);
+    }
 }
 
 * {
@@ -21,22 +37,24 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .header {
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
-    padding: 12px 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border-color);
-    z-index: 10;
+    z-index: 100;
 }
 
 .logo-text {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     letter-spacing: -0.5px;
 }
 
@@ -44,47 +62,87 @@ body {
     color: var(--accent-color);
 }
 
-.dropdown-wrapper {
+/* Custom Dropdown Styling */
+.custom-dropdown {
     position: relative;
-    width: 140px;
+    width: 150px;
+    user-select: none;
 }
 
-#llm-selector {
-    width: 100%;
-    padding: 8px 32px 8px 12px;
+.dropdown-selected {
+    padding: 8px 12px;
     background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-color);
-    appearance: none;
-    outline: none;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 500;
     transition: border-color 0.2s, background 0.2s;
 }
 
-#llm-selector:hover {
-    background: rgba(255, 255, 255, 0.1);
+.dropdown-selected:hover {
     border-color: var(--accent-color);
+    background: rgba(var(--accent-color), 0.05);
 }
 
 .dropdown-arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    transform: rotate(45deg);
+    margin-top: -4px;
+    transition: transform 0.3s;
+}
+
+.custom-dropdown.active .dropdown-arrow {
+    transform: rotate(-135deg);
+    margin-top: 2px;
+}
+
+.dropdown-options {
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid var(--text-color);
-    pointer-events: none;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--dropdown-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.custom-dropdown.active .dropdown-options {
+    display: block;
+    animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.option {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.option:hover {
+    background: var(--option-hover);
+    color: var(--accent-color);
 }
 
 .content {
     flex: 1;
     position: relative;
-    background: #1a1a1a;
+    background: var(--bg-color);
 }
 
 #llm-frame {
@@ -93,12 +151,14 @@ body {
 }
 
 .footer {
-    padding: 8px 16px;
+    padding: 6px 16px;
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--border-color);
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+    color: var(--text-color);
+    opacity: 0.6;
 }
 
 .info-bar {
