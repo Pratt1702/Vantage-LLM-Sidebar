@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Vantage LLM - Your AI Sidebar",
   "version": "1.0.0",
-  "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a professional, glassmorphic sidebar.",
+  "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a sleek sidebar.",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
