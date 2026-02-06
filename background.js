@@ -13,6 +13,8 @@ chrome.runtime.onInstalled.addListener(() => {
     "https://anthropic.com",
     "https://www.perplexity.ai",
     "https://*.google.com",
+    "https://accounts.google.com",
+    "https://google.com",
     "https://*.googleusercontent.com",
     "https://*.bing.com",
   ];

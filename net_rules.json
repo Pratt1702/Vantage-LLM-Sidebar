@@ -22,7 +22,7 @@
           "operation": "remove"
         },
         {
-          "header": "Frame-Ancestors",
+          "header": "X-WebKit-CSP",
           "operation": "remove"
         },
         {
@@ -59,10 +59,15 @@
     "condition": {
       "requestDomains": [
         "www.bing.com",
+        "bing.com",
         "copilot.microsoft.com",
         "perplexity.ai",
+        "www.perplexity.ai",
         "gemini.google.com",
         "aistudio.google.com",
+        "accounts.google.com",
+        "google.com",
+        "www.google.com",
         "chatgpt.com",
         "claude.ai",
         "anthropic.com",
@@ -103,10 +108,15 @@
     "condition": {
       "requestDomains": [
         "www.bing.com",
+        "bing.com",
         "copilot.microsoft.com",
         "perplexity.ai",
+        "www.perplexity.ai",
         "gemini.google.com",
         "aistudio.google.com",
+        "accounts.google.com",
+        "google.com",
+        "www.google.com",
         "chatgpt.com",
         "claude.ai",
         "anthropic.com",
@@ -204,7 +214,7 @@
       ]
     },
     "condition": {
-      "requestDomains": ["perplexity.ai"],
+      "requestDomains": ["perplexity.ai", "www.perplexity.ai"],
       "resourceTypes": ["sub_frame"]
     }
   },
@@ -251,6 +261,29 @@
     },
     "condition": {
       "requestDomains": ["chat.deepseek.com", "deepseek.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 80,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://accounts.google.com/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://accounts.google.com"
+        }
+      ]
+    },
+    "condition": {
+      "requestDomains": ["accounts.google.com"],
       "resourceTypes": ["sub_frame"]
     }
   }
