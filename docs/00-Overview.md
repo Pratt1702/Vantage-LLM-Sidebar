@@ -69,7 +69,7 @@ This documentation is organized into modules, each covering a specific aspect of
 
 ## 🎯 Project Overview
 
-**Vantage LLM Sidebar** is a Chrome extension that embeds multiple AI chatbots (ChatGPT, Claude, Gemini, Perplexity, DeepSeek) into a glassmorphic sidebar.
+**Vantage LLM Sidebar** is a Chrome extension that embeds multiple AI chatbots (ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Kimi) into a minimal sidebar.
 
 ### The Core Challenge
 
@@ -146,4 +146,4 @@ Throughout these docs:
 
 **Ready to become an expert?** Head to [Chrome Extension Basics](01-Chrome-Extension-Basics.md) to begin!
 
-_Last Updated: February 6, 2026_
+_Last Updated: February 11, 2026_

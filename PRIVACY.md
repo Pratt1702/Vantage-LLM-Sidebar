@@ -1,6 +1,6 @@
 # Privacy Policy for Vantage LLM - Your AI Sidebar
 
-**Last Updated:** February 5, 2026
+**Last Updated:** February 11, 2026
 
 Vantage LLM ("we," "our," or "the extension") is committed to protecting your privacy. This Privacy Policy explains our practices regarding data collection and usage.
 
@@ -20,6 +20,7 @@ Vantage LLM functions as a simplified interface (sidebar) for third-party AI ser
 - Anthropic (Claude)
 - Perplexity AI
 - DeepSeek
+- Moonshot AI (Kimi)
 
 When you use these services through Vantage LLM, you are interacting directly with those third-party providers. Your data usage is governed by the respective privacy policies of those providers. We recommend reviewing their policies if you have concerns about how they handle your data.
 
