@@ -32,12 +32,49 @@ chrome.runtime.onInstalled.addListener(() => {
   );
 });
 
+// Track sidebar state per window
+const sidebarState = new Map();
+
 chrome.commands.onCommand.addListener((command) => {
   if (command === "toggle-vantage-panel") {
     chrome.windows.getCurrent((window) => {
-      chrome.sidePanel.open({ windowId: window.id }).catch((err) => {
-        console.error("Side panel toggle error:", err);
-      });
+      const windowId = window.id;
+      const isOpen = sidebarState.get(windowId) || false;
+
+      if (isOpen) {
+        // Close the sidebar
+        chrome.sidePanel
+          .setOptions({
+            windowId: windowId,
+            enabled: false,
+          })
+          .then(() => {
+            sidebarState.set(windowId, false);
+            // Re-enable it immediately so it can be opened again
+            chrome.sidePanel.setOptions({
+              windowId: windowId,
+              enabled: true,
+            });
+          })
+          .catch((err) => {
+            console.error("Side panel close error:", err);
+          });
+      } else {
+        // Open the sidebar
+        chrome.sidePanel
+          .open({ windowId: windowId })
+          .then(() => {
+            sidebarState.set(windowId, true);
+          })
+          .catch((err) => {
+            console.error("Side panel open error:", err);
+          });
+      }
     });
   }
+});
+
+// Clean up state when windows are closed
+chrome.windows.onRemoved.addListener((windowId) => {
+  sidebarState.delete(windowId);
 });

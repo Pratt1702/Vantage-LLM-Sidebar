@@ -27,7 +27,7 @@ Since this extension is optimized for your own workflow, you can install it dire
 
 ## ✨ Features
 
-- **Multi-Model Support**: Seamlessly switch between ChatGPT, Gemini, Claude, Perplexity, DeepSeek, and Nano Banana (Google AI Studio).
+- **Multi-Model Support**: Seamlessly switch between ChatGPT, Gemini, Claude, Perplexity, DeepSeek, Kimi, and Nano Banana (Google AI Studio).
 - **Global Shortcut**: Use `Ctrl + Space` (Cmd + Space on Mac) to toggle the sidebar instantly.
 - **Privacy First**: 100% open source. No data collection, no external servers. Your conversations stay between you and the AI providers.
 - **Smart Switcher**: An elegant, scrollable dropdown that remembers your last used model.

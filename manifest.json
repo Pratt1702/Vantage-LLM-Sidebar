@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Vantage LLM - Your AI Sidebar",
-  "version": "1.0.0",
-  "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity) in a sleek sidebar.",
+  "version": "1.0.1",
+  "description": "Access your favorite LLMs (ChatGPT, Gemini, Claude, Perplexity, Kimi) in a sleek sidebar.",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -25,7 +25,8 @@
     "https://*.microsoftonline.com/*",
     "https://*.claude.ai/*",
     "https://*.anthropic.com/*",
-    "https://*.deepseek.com/*"
+    "https://*.deepseek.com/*",
+    "https://*.moonshot.cn/*"
   ],
   "background": {
     "service_worker": "background.js"

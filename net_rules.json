@@ -72,7 +72,9 @@
         "claude.ai",
         "anthropic.com",
         "chat.deepseek.com",
-        "deepseek.com"
+        "deepseek.com",
+        "kimi.moonshot.cn",
+        "moonshot.cn"
       ],
       "resourceTypes": ["sub_frame", "other"]
     }
@@ -121,7 +123,9 @@
         "claude.ai",
         "anthropic.com",
         "chat.deepseek.com",
-        "deepseek.com"
+        "deepseek.com",
+        "kimi.moonshot.cn",
+        "moonshot.cn"
       ],
       "resourceTypes": ["sub_frame"]
     }
@@ -284,6 +288,29 @@
     },
     "condition": {
       "requestDomains": ["accounts.google.com"],
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 90,
+    "priority": 5001,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://kimi.moonshot.cn/"
+        },
+        {
+          "header": "Origin",
+          "operation": "set",
+          "value": "https://kimi.moonshot.cn"
+        }
+      ]
+    },
+    "condition": {
+      "requestDomains": ["kimi.moonshot.cn", "moonshot.cn"],
       "resourceTypes": ["sub_frame"]
     }
   }
